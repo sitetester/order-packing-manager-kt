@@ -17,7 +17,7 @@ class OrderHandlerTest {
     private val orderHandler = OrderHandler(containerSpecs)
 
     @Test
-    fun testMethod1() {
+    fun `Given a small order, pack it into a single container`() {
 
         val orderRequest = OrderRequest(
             id = "ORDER-001",
