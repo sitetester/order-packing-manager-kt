@@ -1,0 +1,1 @@
+Look into `OrderHandlerTest.kt` to understand business requirements and how code is organized accordingly.
