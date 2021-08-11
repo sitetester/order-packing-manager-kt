@@ -3,7 +3,6 @@ class OrderHandler {
     private var containersHandler: ContainersHandler
     private var productsHandler: ProductsHandler
 
-
     // https://stackoverflow.com/questions/57249356/kotlin-array-property-in-data-class-error
     constructor(containerSpecs: List<ContainerSpec>) {
 
@@ -12,7 +11,6 @@ class OrderHandler {
     }
 
     fun packOrder(orderRequest: OrderRequest): ShipmentRecord {
-        // fun packOrder(orderRequest: OrderRequest) {
 
         checkOrderExecutable(orderRequest)
         val containers: MutableList<Container> = getContainers(orderRequest)
@@ -24,23 +22,20 @@ class OrderHandler {
         )
     }
 
+    // TODO: Apply logic
     private fun checkOrderExecutable(orderRequest: OrderRequest): Boolean {
-
-        return false
+        return true;
     }
 
-    // private fun getContainers(): List<Container> {
     private fun getContainers(orderRequest: OrderRequest): MutableList<Container> {
 
         // https://stackoverflow.com/questions/33278869/how-do-i-initialize-kotlins-mutablelist-to-empty-mutablelist
         var containers: MutableList<Container> = mutableListOf()
 
         val availableContainers = this.containersHandler.getContainers()
-        // orderRequest.products.forEach { product ->
         for (product in orderRequest.products) {
             var quantityAdded = 0
 
-            // availableContainers.forEach { containerSpec ->
             for (containerSpec in availableContainers) {
                 var containingProducts: MutableList<ContainingProduct> = mutableListOf()
 
@@ -141,9 +136,7 @@ class OrderHandler {
             totalVolume += this.containersHandler.getContainerTypeVolume(container.containerType)
         }
 
-
         return totalVolume
     }
-
 }
 
