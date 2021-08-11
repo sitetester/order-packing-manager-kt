@@ -5,7 +5,6 @@ class ProductsHandler {
         return DimensionsHelper().getDimensionsVolume(product.dimensions)
     }
 
-
     fun getProductVolumePerOrderedQuantity(product: Product): Int {
 
         return this.getProductVolume(product) * product.orderedQuantity
